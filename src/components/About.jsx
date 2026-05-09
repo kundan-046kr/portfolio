@@ -1,81 +1,127 @@
-const infoCards = [
+import { motion } from "framer-motion";
+
+const timeline = [
   {
-    // icon: "💻",
-    title: "What I Do",
-    text: "I build full-stack web applications using the MERN stack, focusing on clean architecture and intuitive user experiences.",
+    type: "Experience",
+    title: "Data Analysis Intern (LLM-based)",
+    org: "Edunet Foundation (VOIS for Tech)",
+    date: "Jan 2025 – Feb 2025",
+    desc: "Analyzed conversational datasets using LLM tools to extract structured insights. Developed Python scripts for data preprocessing and workflow automation.",
   },
   {
-    // icon: "🚀",
-    title: "My Journey",
-    text: "Started with C and Java, progressed to web development. Currently a 3rd-year CS student exploring backend systems and APIs.",
-  },
-  {
-    // icon: "🎯",
-    title: "Hobbies",
-    text: "When not coding, I enjoy solving DSA problems, reading about system design, and tinkering with new frameworks.",
-  },
-  {
-    // icon: "🤝",
-    title: "Let's Connect",
-    text: "I'm always open to interesting conversations, collaborations, and new opportunities. Feel free to reach out!",
+    type: "Education",
+    title: "B.Tech CSE (Honors in DS & AI)",
+    org: "Shri Mata Vaishno Devi University",
+    date: "2023 – 2027",
+    desc: "CGPA: 7.34/10. Coursework: Data Structures & Algorithms, DBMS, Operating Systems, Computer Networks, Machine Learning.",
   },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-24 px-6 relative">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-14">
-          {/* <p className="text-xs font-semibold tracking-widest text-accent uppercase mb-2">Get to Know Me</p> */}
-          <h2 className="font-display text-4xl md:text-5xl text-slate-900 mb-4">About Me</h2>
-          <p className="text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            I'm a 3rd-year Computer Science student with a passion for building real-world
-            applications. I'm currently deepening my skills in the MERN stack while exploring
-            AI integrations and Cloud technologies. I believe in writing clean, maintainable
-            code and learning something new every day.
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-4 text-shadow-sm">About Me</h2>
+          <p className="text-slate-300 max-w-4xl mx-auto leading-relaxed text-lg">
+            I'm a Backend Developer and Computer Science undergraduate specializing in Data Science and AI. 
+            I build scalable Node.js applications, design robust relational and NoSQL databases, and integrate 
+            modern AI models into production workflows.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 2×2 info cards */}
-        <div className="grid sm:grid-cols-2 gap-5 mb-5">
-          {infoCards.map((card) => (
-            <div
-              key={card.title}
-              className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+        {/* Experience & Education Timeline */}
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          {timeline.map((item, idx) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="bg-dark-card/50 backdrop-blur-md rounded-2xl border border-white/5 p-7 hover:border-accent/30 hover:bg-dark-card/80 transition-all duration-300 relative overflow-hidden group"
             >
-              <div className="text-2xl mb-3">{card.icon}</div>
-              <h3 className="font-semibold text-slate-900 mb-2">{card.title}</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">{card.text}</p>
-            </div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-accent/10 transition-colors" />
+              <span className="text-xs font-bold tracking-widest text-accent uppercase mb-2 block">
+                {item.type} • {item.date}
+              </span>
+              <h3 className="font-bold text-white text-xl mb-1">{item.title}</h3>
+              <p className="text-sm text-slate-300 font-medium mb-4">{item.org}</p>
+              <p className="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
+            </motion.div>
           ))}
         </div>
 
-        {/* Wide certifications card */}
-        <div className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-md transition-all duration-200">
-          <div className="flex items-start gap-4">
-            {/* <div className="text-2xl shrink-0">🏆</div> */}
-            <div>
-              <h3 className="font-semibold text-slate-900 mb-3">Certifications & Achievements</h3>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "MongoDB Atlas Certification",
-                  "freeCodeCamp — Responsive Web Design",
-                  "Coursera — Python for Everybody",
-                  "HackerRank — Problem Solving (Gold)",
-                  "LeetCode — 100+ Problems Solved",
-                  "Google Cloud — Fundamentals",
-                ].map((cert) => (
-                  <span
-                    key={cert}
-                    className="px-3 py-1.5 bg-accent-light text-accent text-xs font-medium rounded-full"
-                  >
-                    {cert}
-                  </span>
-                ))}
-              </div>
+        {/* Problem Solving & Certifications Grid */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Problem Solving Card */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-dark-card/50 backdrop-blur-md rounded-2xl border border-white/5 p-7 hover:border-accent/30 transition-all duration-300"
+          >
+            <h3 className="font-bold text-white text-xl mb-3">Problem Solving</h3>
+            <p className="text-sm text-slate-400 mb-5 leading-relaxed">
+              Consistently sharpening my algorithmic skills. Solved <strong className="text-white">130+ DSA problems</strong> covering 
+              arrays, binary search, strings, linked lists, and recursion.
+            </p>
+            <div className="flex gap-3">
+              <a 
+                href="https://leetcode.com/u/kundan_046kr/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 bg-[#ffa116]/10 text-[#ffa116] border border-[#ffa116]/20 rounded-lg text-sm font-semibold hover:bg-[#ffa116]/20 transition-colors"
+              >
+                LeetCode ↗
+              </a>
+              <a 
+                href="https://www.geeksforgeeks.org/profile/kundan046kr?tab=activity" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 bg-[#2f8D46]/10 text-[#2f8D46] border border-[#2f8D46]/20 rounded-lg text-sm font-semibold hover:bg-[#2f8D46]/20 transition-colors"
+              >
+                GeeksForGeeks ↗
+              </a>
             </div>
-          </div>
+          </motion.div>
+
+          {/* Certifications Card */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-dark-card/50 backdrop-blur-md rounded-2xl border border-white/5 p-7 hover:border-accent/30 transition-all duration-300"
+          >
+            <h3 className="font-bold text-white text-xl mb-5">Certifications</h3>
+            <div className="flex flex-col gap-3">
+              {[
+                { name: "Cybersecurity Certification", issuer: "CDAC" },
+                { name: "Full Stack Developer Path", issuer: "Scrimba (In Progress)" }
+              ].map((cert) => (
+                <div key={cert.name} className="flex items-center gap-3 p-3 bg-white/5 rounded-xl border border-white/5">
+                  <div className="w-8 h-8 rounded-lg bg-dark-card flex items-center justify-center shrink-0">
+                    <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-white">{cert.name}</p>
+                    <p className="text-xs text-slate-400 font-medium">{cert.issuer}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

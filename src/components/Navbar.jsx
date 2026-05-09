@@ -12,14 +12,14 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-card/60 backdrop-blur-xl border-b border-white/5">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Left: Brand */}
         <button
           onClick={() => scrollTo("home")}
-          className="text-base font-semibold text-slate-800 tracking-wide hover:text-accent transition-colors"
+          className="font-display text-xl font-bold text-white tracking-wide hover:text-accent transition-colors text-shadow-sm"
         >
-          Welcome
+          Welcome<span className="text-accent">.</span>
         </button>
 
         {/* Desktop links */}
@@ -28,7 +28,7 @@ export default function Navbar() {
             <li key={link}>
               <button
                 onClick={() => scrollTo(link)}
-                className="px-4 py-2 text-sm font-medium text-slate-600 rounded-lg hover:bg-accent-light hover:text-accent transition-all duration-150"
+                className="px-4 py-2 text-sm font-medium text-slate-300 rounded-lg hover:bg-white/5 hover:text-white transition-all duration-150"
               >
                 {link}
               </button>
@@ -38,7 +38,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-slate-600 hover:text-accent transition-colors"
+          className="md:hidden text-slate-300 hover:text-white transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -52,12 +52,12 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-6 py-3 flex flex-col gap-1">
+        <div className="md:hidden bg-dark-card/95 backdrop-blur-xl border-t border-white/5 px-6 py-3 flex flex-col gap-1 shadow-2xl">
           {navLinks.map((link) => (
             <button
               key={link}
               onClick={() => scrollTo(link)}
-              className="text-left px-4 py-2.5 text-sm font-medium text-slate-600 rounded-lg hover:bg-accent-light hover:text-accent transition-colors"
+              className="text-left px-4 py-2.5 text-sm font-medium text-slate-300 rounded-lg hover:bg-white/5 hover:text-white transition-colors"
             >
               {link}
             </button>

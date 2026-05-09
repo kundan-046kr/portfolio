@@ -1,0 +1,44 @@
+Kundan Kumar
+Backend Developer (Node.js)|Full-Stack Development
+Bihar, India
+♂phone+91 7006436872/envel⌢pekundan.460kr@gmail.com/linkedinLinkedIn/githubGitHub|Portfolio
+Technical Skills
+Languages:JavaScript (ES6+), C++, SQL
+Backend:Node.js, Express.js, REST APIs, JWT Authentication
+Frontend:React.js
+Databases:MongoDB
+Tools:Git, GitHub, Postman, VS Code
+AI:LLM Integration (Gemini API)
+Education
+Shri Mata Vaishno Devi University2023 – 2027
+B.Tech in Computer Science and Engineering Katra, India
+–Honors:Data Science and Artificial Intelligence —CGPA:7.34 / 10
+– Relevant Coursework:Data Structures & Algorithms, DBMS, Operating Systems, Computer Networks, Machine
+Learning
+Experience
+Virtual Intern — Edunet Foundation (VOIS for Tech)Jan 2025 – Feb 2025
+Conversational Data Analysis (LLM-based) Remote
+–Worked with LLM-based tools to analyze conversational datasets and extract structured insights from unstructured data.
+–Developed Python scripts for data preprocessing and workflow automation to improve processing efficiency.
+–Handled data transformation and analysis tasks, focusing on extracting meaningful patterns from large datasets.
+–Collaborated in a remote agile team environment to deliver weekly reports and insights.
+Projects
+Social Media Backend API|Node.js, Express.js, MongoDB2025
+–Built scalable backend with JWT authentication and protected routes for secure user access.
+–Implemented post creation, like/unlike functionality, and comment system using relational data modeling.
+–Designed MongoDB schemas with ObjectId references and used populate for efficient data retrieval.
+–Structured modular architecture (controllers, routes, middleware) for maintainability and scalability.
+GenAI Full Stack Platform|React, Node.js, MongoDB, Gemini API2025
+–Developed MERN application for AI-driven content generation based on user prompts.
+–Built responsive frontend using React.js and integrated with backend APIs for seamless user interaction.
+–Designed and implemented 6+ RESTful APIs for handling user sessions, requests, and backend workflows.
+–Implemented JWT-based authentication and protected routes for secure user-specific operations.
+–Integrated Gemini API for real-time content generation and dynamic responses.
+Bank Transaction Backend API|Node.js, Express.js, MongoDB2024
+–Developed RESTful APIs for banking operations including deposit, withdrawal, and transaction tracking.
+–Designed optimized MongoDB schemas for efficient querying of transaction data.
+–Implemented input validation and centralized error handling to ensure API reliability.
+Achievements & Certifications
+Problem Solving:Solved 130+ DSA problems across LeetCode and GeeksforGeeks (Striver’s A-Z Sheet), covering arrays,
+binary search, strings, linked list, and recursion.
+Certifications:Cybersecurity (CDAC), Full Stack Developer Path (Scrimba, in progress)

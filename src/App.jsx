@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="bg-gray-100 min-h-screen font-sans text-slate-800">
+    <div className="bg-dark min-h-screen font-sans text-slate-300 selection:bg-accent/30 selection:text-sky-100 overflow-hidden">
       <Navbar />
       <Hero />
       <About />

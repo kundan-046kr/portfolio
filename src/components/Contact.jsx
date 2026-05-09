@@ -1,5 +1,6 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 
 const contactLinks = [
   {
@@ -19,7 +20,7 @@ const contactLinks = [
       </svg>
     ),
     label: "GitHub",
-    value: "github.com/kundankumar",
+    value: "github.com/kundan-046kr",
     href: "https://github.com/kundan-046kr",
   },
   {
@@ -49,13 +50,6 @@ export default function Contact() {
   const [sent, setSent] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setSent(true);
-  //   setForm({ name: "", email: "", subject: "", message: "" });
-  //   setTimeout(() => setSent(false), 4000);
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -89,57 +83,74 @@ export default function Contact() {
   };
 
   const inputClass =
-    "w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all";
+    "w-full px-4 py-3 bg-dark-card/50 border border-white/10 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all";
 
   return (
-    <section id="contact" className="py-24 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="py-24 px-6 relative">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-14">
-          <p className="text-xs font-semibold tracking-widest text-accent uppercase mb-2">Get in Touch</p>
-          <h2 className="font-display text-4xl md:text-5xl text-slate-900 mb-4">Contact Me</h2>
-          <p className="text-slate-500 max-w-xl mx-auto text-sm">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-4 text-shadow-sm">Contact Me</h2>
+          <p className="text-slate-400 max-w-xl mx-auto text-base">
             I'm currently looking for internship and collaboration opportunities. Whether you have a
             question or just want to say hi, my inbox is always open.
           </p>
-        </div>
+        </motion.div>
 
         {/* Two columns */}
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* LEFT: Contact links */}
-          <div className="flex flex-col gap-4">
-            <h3 className="font-semibold text-slate-800 mb-1">Find me here</h3>
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col gap-4"
+          >
+            <h3 className="font-bold text-white text-xl mb-2">Find me here</h3>
             {contactLinks.map((c) => (
               <a
                 key={c.label}
                 href={c.href}
                 target={c.href.startsWith("http") ? "_blank" : undefined}
                 rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group flex items-center gap-4 p-4 bg-gray-50 rounded-2xl border border-gray-200 hover:border-accent hover:bg-accent-light transition-all duration-200"
+                className="group flex items-center gap-4 p-4 bg-dark-card/40 backdrop-blur-sm rounded-2xl border border-white/5 hover:border-accent/50 hover:bg-white/5 transition-all duration-300 hover:shadow-glow"
               >
-                <div className="w-9 h-9 flex items-center justify-center bg-white rounded-xl border border-gray-200 text-slate-500 group-hover:text-accent group-hover:border-accent transition-colors shrink-0">
+                <div className="w-10 h-10 flex items-center justify-center bg-dark-card rounded-xl border border-white/10 text-slate-400 group-hover:text-accent group-hover:border-accent transition-colors shrink-0">
                   {c.icon}
                 </div>
                 <div>
-                  <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-0.5">{c.label}</p>
-                  <p className="text-sm font-medium text-slate-700 group-hover:text-accent transition-colors">{c.value}</p>
+                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">{c.label}</p>
+                  <p className="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">{c.value}</p>
                 </div>
-                <svg className="w-3.5 h-3.5 text-slate-300 ml-auto group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-slate-600 ml-auto group-hover:text-accent transition-colors group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </a>
             ))}
-          </div>
+          </motion.div>
 
           {/* RIGHT: Form */}
-          <div className="bg-gray-50 rounded-2xl border border-gray-200 p-6">
-            <h3 className="font-semibold text-slate-800 mb-5">Send a Message</h3>
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="bg-dark-card/60 backdrop-blur-md rounded-2xl border border-white/5 p-7 shadow-lg"
+          >
+            <h3 className="font-bold text-white text-xl mb-6">Send a Message</h3>
             {sent && (
-              <div className="mb-4 px-4 py-3 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-700 text-sm font-medium">
+              <div className="mb-5 px-4 py-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-emerald-400 text-sm font-semibold">
                 ✓ Message sent! I'll get back to you soon.
               </div>
             )}
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <input
                 required
                 type="text"
@@ -178,37 +189,43 @@ export default function Contact() {
               />
               <button
                 type="submit"
-                className="w-full py-3 bg-accent text-white text-sm font-semibold rounded-xl hover:bg-indigo-600 active:scale-95 transition-all duration-150"
+                className="w-full py-3.5 bg-accent text-white text-sm font-bold rounded-xl hover:bg-sky-400 hover:shadow-glow active:scale-95 transition-all duration-300 mt-2"
               >
                 Send Message →
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
 
         {/* CTA wide card */}
-        <div className="bg-slate-900 rounded-2xl p-8 text-center">
-          <h3 className="font-display text-2xl text-white mb-2">Let's Work Together!</h3>
-          <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="bg-gradient-to-br from-accent/20 to-purple-600/20 backdrop-blur-xl border border-white/10 rounded-2xl p-8 md:p-10 text-center shadow-glow"
+        >
+          <h3 className="font-display text-3xl text-white mb-3 text-shadow-sm">Let's Work Together!</h3>
+          <p className="text-slate-300 text-base mb-8 max-w-md mx-auto">
             Open to internships, freelance projects, and open-source collaborations.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="mailto:kundan.460kr@gmail.com"
-              className="px-5 py-2.5 bg-accent text-white text-sm font-semibold rounded-xl hover:bg-indigo-400 transition-colors"
+              className="px-6 py-3 bg-accent text-white text-sm font-bold rounded-xl hover:bg-sky-400 hover:shadow-glow transition-all"
             >
               Contact Me
             </a>
             <a
-            href="/assets/kundan_kumar_resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-5 py-2.5 bg-white/10 text-white text-sm font-semibold rounded-xl hover:bg-white/20 transition-colors border border-white/10"
-          >
-            View Resume ↗
-          </a>
+              href="/assets/kundan_kumar_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-white/5 text-white text-sm font-bold rounded-xl hover:bg-white/10 transition-colors border border-white/10"
+            >
+              View Resume ↗
+            </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
