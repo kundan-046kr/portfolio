@@ -31,9 +31,7 @@ export default function About() {
         >
           <h2 className="font-display text-4xl md:text-5xl text-white mb-4 text-shadow-sm">About Me</h2>
           <p className="text-slate-300 max-w-4xl mx-auto leading-relaxed text-lg">
-            I'm a Backend Developer and Computer Science undergraduate specializing in Data Science and AI. 
-            I build scalable Node.js applications, design robust relational and NoSQL databases, and integrate 
-            modern AI models into production workflows.
+            I'm a backend-focused developer building scalable Node.js and Express APIs with MongoDB. I combine full-stack development skills using React, REST APIs, authentication, and database design to create practical, real-world applications.
           </p>
         </motion.div>
 
